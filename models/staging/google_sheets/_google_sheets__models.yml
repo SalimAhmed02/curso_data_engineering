@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_google_sheets__BUDGET
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+        data_type: text
+        constraints:
+          - type: not_null
+      - name: product_name
+        data_type: TEXT                      
+        constraints:
+          - type: not_null
+      - name: unit_price_usd
+        data_type: real
+        constraints:
+          - type: not_null
+      - name: inventory
+        data_type: NUMBER                      
+        constraints:
+          - type: not_null
+      - name: date_load
+        data_type: TIMESTAMP_TZ
+        constraints:
+          - type: not_null   

@@ -58,7 +58,7 @@ sources:
           - name: USER_ID
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
-      - name: ORDERS_ITEMS
+      - name: ORDER_ITEMS
         loaded_at_field: _fivetran_synced
         columns:
           - name: ORDER_ID
