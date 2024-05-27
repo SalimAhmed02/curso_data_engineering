@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  # ADDRESSES
+# ADDRESSES
   - name: stg_sql_server_dbo__addresses
     description: ""
     columns:
@@ -32,7 +32,8 @@ models:
       - name: date_load
         data_type: timestamp_tz
         description: ""
-  # EVENTS
+
+# EVENTS
   - name: stg_sql_server_dbo__events
     description: ""
     columns:
@@ -51,6 +52,7 @@ models:
       - name: order_id
         data_type: varchar
         description: ""
+
 # ORDERS
   - name: stg_sql_server_dbo__orders
     description: ""
@@ -114,6 +116,7 @@ models:
       - name: date_load
         data_type: timestamp_tz
         description: ""
+
 # ORDER_ITEMS
   - name: stg_sql_server_dbo__order_items
     description: ""
@@ -137,6 +140,7 @@ models:
       - name: date_load
         data_type: timestamp_tz
         description: ""
+
 # PRODUCTS
   - name: stg_sql_server_dbo__products
     description: ""
@@ -164,6 +168,7 @@ models:
       - name: date_load
         data_type: timestamp_tz
         description: ""
+
 # PROMOS
   - name: stg_sql_server_dbo__promos
     description: ""
@@ -187,6 +192,7 @@ models:
       - name: date_load
         data_type: timestamp_tz
         description: ""
+        
 # USERS
   - name: stg_sql_server_dbo__users
     description: ""

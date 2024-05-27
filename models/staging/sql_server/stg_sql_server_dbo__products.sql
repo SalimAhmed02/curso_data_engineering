@@ -4,19 +4,20 @@
   )
 }}
 
-WITH src_order_items AS (
+WITH src_products AS (
     SELECT * 
-    FROM {{ source('sql_server_dbo', 'ORDER_ITEMS') }}
+    FROM {{ source('sql_server_dbo', 'products') }}
     ),
 
 renamed_casted AS (
     SELECT
-        ORDER_ID
+        INVENTORY
+        , NAME
+        , PRICE
         , PRODUCT_ID
-        , QUANTITY
         , _FIVETRAN_DELETED AS date_delete
         , _FIVETRAN_SYNCED AS date_load
-    FROM src_order_items
+    FROM src_products
     )
 
 SELECT * FROM renamed_casted

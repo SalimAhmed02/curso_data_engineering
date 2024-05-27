@@ -6,7 +6,7 @@
 
 WITH src_users AS (
     SELECT * 
-    FROM {{ source('sql_server_dbo', 'USERS') }}
+    FROM {{ source('sql_server_dbo', 'users') }}
     ),
 
 renamed_casted AS (

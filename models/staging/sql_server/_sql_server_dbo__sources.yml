@@ -17,7 +17,7 @@ sources:
 
     tables:
 
-      - name: ADDRESSES
+      - name: addresses
         loaded_at_field: _fivetran_synced
         columns:
           - name: ADDRESS
@@ -27,7 +27,7 @@ sources:
           - name: ZIPCODE
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
-      - name: EVENTS
+      - name: events
         loaded_at_field: _fivetran_synced
         columns:
           - name: CREATED_AT
@@ -40,7 +40,7 @@ sources:
           - name: USER_ID
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
-      - name: ORDERS
+      - name: orders
         loaded_at_field: _fivetran_synced
         columns:
           - name: ADDRESS_ID
@@ -58,7 +58,7 @@ sources:
           - name: USER_ID
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
-      - name: ORDER_ITEMS
+      - name: order_items
         loaded_at_field: _fivetran_synced
         columns:
           - name: ORDER_ID
@@ -66,7 +66,7 @@ sources:
           - name: QUANTITY
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
-      - name: PRODUCTS
+      - name: products
         loaded_at_field: _fivetran_synced
         columns:
           - name: INVENTORY
@@ -75,7 +75,7 @@ sources:
           - name: PRODUCT_ID
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
-      - name: PROMOS
+      - name: promos
         loaded_at_field: _fivetran_synced
         columns:
           - name: DISCOUNT
@@ -83,7 +83,7 @@ sources:
           - name: STATUS
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
-      - name: USERS
+      - name: users
         loaded_at_field: _fivetran_synced
         columns:
           - name: ADDRESS_ID

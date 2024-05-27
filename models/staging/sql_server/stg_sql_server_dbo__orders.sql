@@ -6,7 +6,7 @@
 
 WITH src_orders AS (
     SELECT * 
-    FROM {{ source('sql_server_dbo', 'ORDERS') }}
+    FROM {{ source('sql_server_dbo', 'orders') }}
     ),
 
 renamed_casted AS (
