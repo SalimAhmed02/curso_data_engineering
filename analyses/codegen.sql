@@ -1,3 +1,3 @@
 {{ codegen.generate_model_yaml(
-    model_names=['stg_sql_server_dbo__USERS']
+    model_names=['stg_sql_server_dbo__users']
 ) }}

@@ -4,19 +4,19 @@
   )
 }}
 
-WITH src_promos AS (
+WITH src_order_items AS (
     SELECT * 
-    FROM {{ source('sql_server_dbo', 'PROMOS') }}
+    FROM {{ source('sql_server_dbo', 'order_items') }}
     ),
 
 renamed_casted AS (
     SELECT
-        DISCOUNT
-        , PROMO_ID
-        , STATUS
+        ORDER_ID
+        , PRODUCT_ID
+        , QUANTITY
         , _FIVETRAN_DELETED AS date_delete
         , _FIVETRAN_SYNCED AS date_load
-    FROM src_promos
+    FROM src_order_items
     )
 
 SELECT * FROM renamed_casted
