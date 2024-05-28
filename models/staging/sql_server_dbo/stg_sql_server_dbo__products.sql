@@ -7,6 +7,7 @@
 WITH src_products AS (
     SELECT * 
     FROM {{ source('sql_server_dbo', 'products') }}
+    WHERE _FIVETRAN_DELETED IS NULL
     ),
 
 renamed_casted AS (
@@ -15,8 +16,7 @@ renamed_casted AS (
         , NAME
         , PRICE
         , PRODUCT_ID
-        , _FIVETRAN_DELETED AS date_delete
-        , _FIVETRAN_SYNCED AS date_load
+        , CONVERT_TIMEZONE('UTC', TO_TIMESTAMP_TZ(_FIVETRAN_SYNCED)) AS utc_date_load
     FROM src_products
     )
 

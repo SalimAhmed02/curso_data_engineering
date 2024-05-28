@@ -19,6 +19,8 @@ sources:
 
       - name: addresses
         loaded_at_field: _fivetran_synced
+        description: >
+          Tabla de contactos
         columns:
           - name: ADDRESS
           - name: ADDRESS_ID
@@ -29,6 +31,8 @@ sources:
           - name: _FIVETRAN_SYNCED
       - name: events
         loaded_at_field: _fivetran_synced
+        description: >
+          Tabla de eventos
         columns:
           - name: CREATED_AT
           - name: EVENT_ID
@@ -42,6 +46,8 @@ sources:
           - name: _FIVETRAN_SYNCED
       - name: orders
         loaded_at_field: _fivetran_synced
+        description: >
+          Tabla de pedidos
         columns:
           - name: ADDRESS_ID
           - name: CREATED_AT
@@ -60,6 +66,8 @@ sources:
           - name: _FIVETRAN_SYNCED
       - name: order_items
         loaded_at_field: _fivetran_synced
+        description: >
+          Tabla de los productos pedidos
         columns:
           - name: ORDER_ID
           - name: PRODUCT_ID
@@ -68,6 +76,8 @@ sources:
           - name: _FIVETRAN_SYNCED
       - name: products
         loaded_at_field: _fivetran_synced
+        description: >
+          Tabla de productos
         columns:
           - name: INVENTORY
           - name: NAME
@@ -77,14 +87,19 @@ sources:
           - name: _FIVETRAN_SYNCED
       - name: promos
         loaded_at_field: _fivetran_synced
+        description: >
+          Tabla de promociones
         columns:
           - name: DISCOUNT
           - name: PROMO_ID
+          - name: PROMO_NAME
           - name: STATUS
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
       - name: users
         loaded_at_field: _fivetran_synced
+        description: >
+          Tabla de usuarios
         columns:
           - name: ADDRESS_ID
           - name: CREATED_AT
@@ -97,3 +112,17 @@ sources:
           - name: USER_ID
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
+      - name: status_promos
+        loaded_at_field: _fivetran_synced
+        description: >
+          Estado de las promociones
+        columns:
+          - name: STATUS_PROMOS_ID
+          - name: STATUS_PROMOS_NAME
+      - name: status_orders
+        loaded_at_field: _fivetran_synced
+        description: >
+          Estado de los pedidos
+        columns:
+          - name: STATUS_ORDERS_ID
+          - name: STATUS_ORDERS_NAME
