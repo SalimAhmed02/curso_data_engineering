@@ -181,6 +181,10 @@ models:
         data_type: varchar
         description: ""
 
+      - name: promo_name
+        data_type: varchar
+        description: ""
+
       - name: status
         data_type: varchar
         description: ""
@@ -239,4 +243,28 @@ models:
 
       - name: date_load
         data_type: timestamp_tz
+        description: ""
+
+# STATUS_PROMOS
+  - name: stg_sql_server_dbo__status_promos
+    description: ""
+    columns:
+      - name: status_promos_id
+        data_type: varchar
+        description: ""
+
+      - name: status_promos_name
+        data_type: varchar
+        description: ""
+
+# STATUS_ORDERS
+  - name: stg_sql_server_dbo__status_orders
+    description: ""
+    columns:
+      - name: status_orders_id
+        data_type: varchar
+        description: ""
+
+      - name: status_orders_name
+        data_type: varchar
         description: ""
