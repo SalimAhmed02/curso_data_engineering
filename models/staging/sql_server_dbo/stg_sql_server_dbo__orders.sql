@@ -23,7 +23,7 @@ renamed_casted AS (
                ELSE md5(promo_id)
           END as promo_id
         , SHIPPING_COST
-        , SHIPPING_SERVICE
+        , md5(SHIPPING_SERVICE) as SHIPPING_SERVICE_ID
         , md5(STATUS) as status_orders_id
         , TRACKING_ID
         , USER_ID
