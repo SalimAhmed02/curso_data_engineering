@@ -26,7 +26,6 @@ renamed_casted AS (
         'Desconocido',
         0,
         0,
-        null,
         null
     )
 

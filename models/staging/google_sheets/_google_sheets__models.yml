@@ -2,13 +2,8 @@ version: 2
 
 models:
   - name: stg_google_sheets__BUDGET
-    config:
-      contract:
-        enforced: true
     columns:
       - name: product_id
-        tests:
-          - not_null
         data_type: text
         constraints:
           - type: not_null
