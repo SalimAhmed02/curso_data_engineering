@@ -23,10 +23,21 @@ sources:
           Tabla de contactos
         columns:
           - name: ADDRESS
+            tests:
+                - not_null
           - name: ADDRESS_ID
+            tests:
+                - unique
+                - not_null
           - name: COUNTRY
+            tests:
+                - not_null
           - name: STATE
+            tests:
+                - not_null
           - name: ZIPCODE
+            tests:
+                - not_null
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
       - name: events
@@ -35,13 +46,26 @@ sources:
           Tabla de eventos
         columns:
           - name: CREATED_AT
+            tests:
+                - not_null
           - name: EVENT_ID
+            tests:
+                - unique
+                - not_null
           - name: EVENT_TYPE
+            tests:
+                - not_null
           - name: ORDER_ID
           - name: PAGE_URL
+            tests:
+                - not_null
           - name: PRODUCT_ID
           - name: SESSION_ID
+            tests:
+                - not_null
           - name: USER_ID
+            tests:
+                - not_null
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
       - name: orders
@@ -50,18 +74,42 @@ sources:
           Tabla de pedidos
         columns:
           - name: ADDRESS_ID
+            tests:
+                - not_null
           - name: CREATED_AT
+            tests:
+                - not_null
           - name: DELIVERED_AT
           - name: ESTIMATED_DELIVERY_AT
           - name: ORDER_COST
+            tests:
+                - not_null
+                - positive_values
           - name: ORDER_ID
+            tests:
+                - unique
+                - not_null
           - name: ORDER_TOTAL
+            tests:
+                - not_null
+                - positive_values
           - name: PROMO_ID
+            tests:
+                - not_null
           - name: SHIPPING_COST
+            tests:
+                - not_null
+                - positive_values
           - name: SHIPPING_SERVICE
+            tests:
+                - not_null
           - name: STATUS
+            tests:
+                - not_null
           - name: TRACKING_ID
           - name: USER_ID
+            tests:
+                - not_null
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
       - name: order_items
@@ -70,8 +118,15 @@ sources:
           Tabla de los productos pedidos
         columns:
           - name: ORDER_ID
+            tests:
+                - not_null
           - name: PRODUCT_ID
+            tests:
+                - not_null
           - name: QUANTITY
+            tests:
+                - not_null
+                - positive_values
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
       - name: products
@@ -80,9 +135,20 @@ sources:
           Tabla de productos
         columns:
           - name: INVENTORY
+            tests:
+                - not_null
+                - positive_values
           - name: NAME
+            tests:
+                - not_null
           - name: PRICE
+            tests:
+                - not_null
+                - positive_values
           - name: PRODUCT_ID
+            tests:
+                - unique
+                - not_null
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
       - name: promos
@@ -91,9 +157,16 @@ sources:
           Tabla de promociones
         columns:
           - name: DISCOUNT
+            tests:
+                - not_null
           - name: PROMO_ID
+            tests:
+                - unique
+                - not_null
           - name: PROMO_NAME
           - name: STATUS
+            tests:
+                - not_null
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
       - name: users
@@ -102,14 +175,31 @@ sources:
           Tabla de usuarios
         columns:
           - name: ADDRESS_ID
+            tests:
+                - not_null
           - name: CREATED_AT
+            tests:
+                - not_null
           - name: EMAIL
+            tests:
+                - not_null
           - name: FIRST_NAME
+            tests:
+                - not_null
           - name: LAST_NAME
+            tests:
+                - not_null
           - name: PHONE_NUMBER
+            tests:
+                - not_null
           - name: TOTAL_ORDERS
           - name: UPDATED_AT
+            tests:
+                - not_null
           - name: USER_ID
+            tests:
+                - unique
+                - not_null
           - name: _FIVETRAN_DELETED
           - name: _FIVETRAN_SYNCED
       - name: status_promos
@@ -118,8 +208,6 @@ sources:
           Estado de las promociones
         columns:
           - name: STATUS_PROMOS_ID
-            tests:
-                - positive_values
           - name: STATUS_PROMOS_NAME
       - name: status_orders
         loaded_at_field: _fivetran_synced

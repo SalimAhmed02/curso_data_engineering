@@ -12,11 +12,11 @@ WITH src_products AS (
 
 renamed_casted AS (
     SELECT
-        INVENTORY
+        PRODUCT_ID
         , NAME
         , PRICE
-        , PRODUCT_ID
-        , CONVERT_TIMEZONE('UTC', TO_TIMESTAMP_TZ(_FIVETRAN_SYNCED)) AS utc_date_load
+        , INVENTORY
+        , {{ convert_to_utc('_FIVETRAN_SYNCED') }} as utc_date_load
     FROM src_products
     )
 

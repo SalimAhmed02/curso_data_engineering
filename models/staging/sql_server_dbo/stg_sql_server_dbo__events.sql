@@ -12,15 +12,15 @@ WITH src_events AS (
 
 renamed_casted AS (
     SELECT
-        CREATED_AT
+        {{ convert_to_utc('CREATED_AT') }} as utc_created_at
         , EVENT_ID
         , EVENT_TYPE
-        , ORDER_ID
+        , IFF(ORDER_ID = '', 'sin_order_id', ORDER_ID) as ORDER_ID
         , PAGE_URL
-        , PRODUCT_ID
+        , IFF(PRODUCT_ID = '', 'sin_product_id', PRODUCT_ID) as PRODUCT_ID
         , SESSION_ID
         , USER_ID
-        , CONVERT_TIMEZONE('UTC', TO_TIMESTAMP_TZ(_FIVETRAN_SYNCED)) AS utc_date_load
+        , {{ convert_to_utc('_FIVETRAN_SYNCED') }} as utc_date_load
     FROM src_events
     )
 
