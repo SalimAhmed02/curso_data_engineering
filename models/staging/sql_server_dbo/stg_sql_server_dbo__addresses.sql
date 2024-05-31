@@ -17,7 +17,7 @@ renamed_casted AS (
         , COUNTRY
         , STATE
         , ZIPCODE
-        , CONVERT_TIMEZONE('UTC', TO_TIMESTAMP_TZ(_FIVETRAN_SYNCED)) AS utc_date_load
+        , {{ convert_to_utc('_FIVETRAN_SYNCED') }} as utc_date_load
     FROM src_addresses
     )
 
