@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select SHIPPING_SERVICE from {{ source('sql_server_dbo', 'orders') }}
+    select SHIPPING_SERVICE from {{ ref('base_sql_server_dbo__orders') }}
 
 ),
 

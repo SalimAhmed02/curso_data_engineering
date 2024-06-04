@@ -60,6 +60,10 @@ models:
         description: ""
 
       - name: user_id
+        tests:
+          - relationships:
+              to: ref('stg_sql_server_dbo__users')
+              field: user_id
         data_type: varchar
         description: ""
 
@@ -67,14 +71,33 @@ models:
         data_type: timestamp_tz
         description: ""
 
+  - name: stg_sql_server_dbo__events_type
+    description: ""
+    columns:
+      - name: event_type_id
+        data_type: varchar
+        description: ""
+
+      - name: event_type_name
+        data_type: varchar
+        description: ""
+
   - name: stg_sql_server_dbo__order_items
     description: ""
     columns:
       - name: order_id
+        tests:
+          - relationships:
+              to: ref('stg_sql_server_dbo__order')
+              field: order_id
         data_type: varchar
         description: ""
 
       - name: product_id
+        tests:
+          - relationships:
+              to: ref('stg_sql_server_dbo__products')
+              field: product_id
         data_type: varchar
         description: ""
 
@@ -95,6 +118,10 @@ models:
 
       - name: created_at
         data_type: timestamp_tz
+        description: ""
+
+      - name: month
+        data_type: DATE
         description: ""
 
       - name: delivered_at
@@ -142,6 +169,10 @@ models:
         description: ""
 
       - name: user_id
+        tests:
+          - relationships:
+              to: ref('stg_sql_server_dbo__users')
+              field: user_id
         data_type: varchar
         description: ""
 

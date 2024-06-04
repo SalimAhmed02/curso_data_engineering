@@ -2,15 +2,15 @@ with
 
 source as (
 
-    select status from {{ source('sql_server_dbo', 'promos') }}
+    select STATUS_PROMOS from {{ ref('base_sql_server_dbo__promos') }}
 
 ),
 
 renamed as (
 
     select
-        distinct(status) as status_promos_name,
-        IFF(status = 'active', '1', '0') as status_promos_id
+        distinct(STATUS_PROMOS) as status_promos_name,
+        IFF(STATUS_PROMOS = 'active', '1', '0') as status_promos_id
     from source
 
 )

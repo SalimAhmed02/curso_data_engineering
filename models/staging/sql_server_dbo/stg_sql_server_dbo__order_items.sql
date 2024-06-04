@@ -7,7 +7,6 @@
 WITH src_order_items AS (
     SELECT * 
     FROM {{ source('sql_server_dbo', 'order_items') }}
-    WHERE _FIVETRAN_DELETED IS NULL
     ),
 
 renamed_casted AS (
