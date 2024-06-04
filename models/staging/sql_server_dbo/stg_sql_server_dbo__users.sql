@@ -7,7 +7,6 @@
 WITH src_users AS (
     SELECT * 
     FROM {{ source('sql_server_dbo', 'users') }}
-    WHERE _FIVETRAN_DELETED IS NULL
     ),
 
 renamed_casted AS (

@@ -17,7 +17,7 @@ sources:
 
     tables:
 
-      - name: BUDGET
+      - name: budget
         loaded_at_field: _fivetran_synced
         columns:
           - name: _row

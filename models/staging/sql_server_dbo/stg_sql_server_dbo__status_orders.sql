@@ -2,15 +2,15 @@ with
 
 source as (
 
-    select status from {{ source('sql_server_dbo', 'orders') }}
+    select STATUS_ORDERS from {{ ref('base_sql_server_dbo__orders') }}
 
 ),
 
 renamed as (
 
     select
-        distinct(md5(status)) as status_orders_id
-        , status as status_orders_name
+        distinct(md5(STATUS_ORDERS)) as status_orders_id
+        , STATUS_ORDERS as status_orders_name
     from source
 
 )
