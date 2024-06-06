@@ -1,6 +1,6 @@
 with 
 
-source as (
+src_shipping_service as (
 
     select SHIPPING_SERVICE from {{ ref('base_sql_server_dbo__orders') }}
 
@@ -13,7 +13,7 @@ renamed as (
         , CASE WHEN SHIPPING_SERVICE = '' then 'sin_shipping_service'
                ELSE SHIPPING_SERVICE
           END AS SHIPPING_SERVICE_NAME
-    from source
+    from src_shipping_service
 )
 
 select * from renamed

@@ -6,9 +6,9 @@
 
 with 
 
-source as (
+src_shipping_service as (
 
-    select SHIPPING_SERVICE from {{ ref('stg_sql_server_dbo__orders') }}
+    select * from {{ ref('stg_sql_server_dbo__shipping_service') }}
 
 ),
 
@@ -17,7 +17,7 @@ renamed as (
     select
         SHIPPING_SERVICE_ID
         , SHIPPING_SERVICE_NAME
-    from source
+    from src_shipping_service
 )
 
 select * from renamed

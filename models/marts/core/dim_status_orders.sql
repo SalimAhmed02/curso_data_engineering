@@ -6,9 +6,9 @@
 
 with 
 
-source as (
+src_status_orders as (
 
-    select STATUS_ORDERS from {{ ref('stg_sql_server_dbo__status_orders') }}
+    select * from {{ ref('stg_sql_server_dbo__status_orders') }}
 
 ),
 
@@ -17,7 +17,7 @@ renamed as (
     select
         status_orders_id
         , status_orders_name
-    from source
+    from src_status_orders
 
 )
 

@@ -21,8 +21,8 @@ renamed_casted AS (
     UNION ALL
 
     SELECT
-        md5('sin_promo'),
-        'sin_promo',
+        md5('sin_promo_id'),
+        'sin_promo_name',
         0,
         0,
         null

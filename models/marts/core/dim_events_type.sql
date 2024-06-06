@@ -6,9 +6,9 @@
 
 with 
 
-source as (
+src_events_type as (
 
-    select EVENT_TYPE from {{ ref('stg_sql_server_dbo__events_type') }}
+    select * from {{ ref('stg_sql_server_dbo__events_type') }}
 
 ),
 
@@ -17,7 +17,7 @@ renamed as (
     select
         event_type_id
         , event_type_name
-    from source
+    from src_events_type
 )
 
 select * from renamed
