@@ -9,6 +9,11 @@ models:
         description: ""
 
       - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_sql_server_dbo__products')
+              field: product_id
         data_type: varchar
         description: ""
 

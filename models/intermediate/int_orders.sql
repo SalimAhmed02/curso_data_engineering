@@ -30,12 +30,16 @@ renamed_casted AS (
         , B.product_id
         , B.quantity
         , C.PRICE
-        , (B.QUANTITY * C.PRICE) as total_price
-        , D.DISCOUNT_DOLLAR
-        , (total_price + ORDER_COST + SHIPPING_COST - DISCOUNT_DOLLAR) as total_price_product
+        -- Precio total de cada product_id
+        , (B.QUANTITY * C.PRICE) as total_price_product
+        -- Descuento total de cada pedido
+        , D.DISCOUNT_DOLLAR / COUNT(A.ORDER_ID) over(PARTITION BY A.ORDER_ID ORDER BY A.ORDER_ID) as DISCOUNT_DOLLAR_ORDER
+        -- Gastos de envío totales de cada pedido
+        , SHIPPING_COST / COUNT(A.ORDER_ID) over(PARTITION BY A.ORDER_ID ORDER BY A.ORDER_ID) as SHIPPING_COST_ORDER
+        -- Precio final de un pedido
+        , (total_price_product + SHIPPING_COST_ORDER - DISCOUNT_DOLLAR_ORDER) as final_price
         , ORDER_COST
         , ORDER_TOTAL
-        , SHIPPING_COST
         , SHIPPING_SERVICE_ID
         , ADDRESS_ID
         , utc_created_at

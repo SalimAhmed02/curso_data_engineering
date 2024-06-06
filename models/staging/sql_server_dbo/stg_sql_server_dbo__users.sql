@@ -29,7 +29,7 @@ renamed_casted AS (
     SELECT
         md5('sin_address_id')
         , null
-        , 'noexiste@dbt.com'
+        , 'no_existe'
         , false
         , null
         , null

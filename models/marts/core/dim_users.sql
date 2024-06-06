@@ -23,6 +23,7 @@ renamed_casted AS (
         , FIRST_NAME
         , LAST_NAME
         , PHONE_NUMBER
+        -- Numero de pedidos de un usuario
         , COUNT(B.USER_ID) as TOTAL_ORDERS
         , utc_updated_at
         , A.utc_date_load

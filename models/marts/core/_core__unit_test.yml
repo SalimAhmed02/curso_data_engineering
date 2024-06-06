@@ -11,11 +11,11 @@ unit_tests:
           - {email: fail_email}
       - input: this
         rows:
-          - {email: noexiste@dbt.com}
+          - {email: no_existe}
     expect:
       rows:
         - {email: ekollaschek2q@tuttocitta.it,    is_valid_email_address: true}
         - {email: sdivers2p@msu.edu,    is_valid_email_address: true}
         - {email: wheinecke2l@ebay.com,    is_valid_email_address: true}
-        - {email: noexiste@dbt.com,    is_valid_email_address: false}
         - {email: fail_email,    is_valid_email_address: false}
+        - {email: no_existe,    is_valid_email_address: false}
