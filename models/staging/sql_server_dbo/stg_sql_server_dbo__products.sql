@@ -17,6 +17,15 @@ renamed_casted AS (
         , INVENTORY
         , {{ convert_to_utc('_FIVETRAN_SYNCED') }} as utc_date_load
     FROM src_products
+
+    UNION ALL
+
+    SELECT 
+        md5('sin_product_id')
+        , null
+        , 0
+        , 0
+        , null
     )
 
 SELECT * FROM renamed_casted

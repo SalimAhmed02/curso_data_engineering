@@ -23,6 +23,21 @@ renamed_casted AS (
         , USER_ID
         , {{ convert_to_utc('_FIVETRAN_SYNCED') }} as utc_date_load
     FROM src_users
+
+    UNION ALL
+
+    SELECT
+        md5('sin_address_id')
+        , null
+        , 'noexiste@dbt.com'
+        , false
+        , null
+        , null
+        , null
+        , null
+        , null
+        , md5('sin_user_id')
+        , null
     )
 
 SELECT * FROM renamed_casted

@@ -31,7 +31,7 @@ models:
   - name: stg_sql_server_dbo__events
     description: ""
     columns:
-      - name: created_at
+      - name: utc_created_at
         data_type: timestamp_ntz
         description: ""
 
@@ -39,11 +39,19 @@ models:
         data_type: varchar
         description: ""
 
-      - name: event_type
+      - name: event_type_id
+        tests:
+          - relationships:
+              to: ref('stg_sql_server_dbo__events_type')
+              field: event_type_id
         data_type: varchar
         description: ""
 
       - name: order_id
+        tests:
+          - relationships:
+              to: ref('stg_sql_server_dbo__orders')
+              field: order_id
         data_type: varchar
         description: ""
 
@@ -52,6 +60,10 @@ models:
         description: ""
 
       - name: product_id
+        tests:
+          - relationships:
+              to: ref('stg_sql_server_dbo__products')
+              field: product_id
         data_type: varchar
         description: ""
 
@@ -82,41 +94,18 @@ models:
         data_type: varchar
         description: ""
 
-  - name: stg_sql_server_dbo__order_items
-    description: ""
-    columns:
-      - name: order_id
-        tests:
-          - relationships:
-              to: ref('stg_sql_server_dbo__order')
-              field: order_id
-        data_type: varchar
-        description: ""
-
-      - name: product_id
-        tests:
-          - relationships:
-              to: ref('stg_sql_server_dbo__products')
-              field: product_id
-        data_type: varchar
-        description: ""
-
-      - name: quantity
-        data_type: number
-        description: ""
-
-      - name: utc_date_load
-        data_type: timestamp_tz
-        description: ""
-
   - name: stg_sql_server_dbo__orders
     description: ""
     columns:
       - name: address_id
+        tests:
+          - relationships:
+              to: ref('stg_sql_server_dbo__addresses')
+              field: address_id
         data_type: varchar
         description: ""
 
-      - name: created_at
+      - name: utc_created_at
         data_type: timestamp_tz
         description: ""
 
@@ -124,11 +113,11 @@ models:
         data_type: DATE
         description: ""
 
-      - name: delivered_at
+      - name: utc_delivered_at
         data_type: timestamp_tz
         description: ""
 
-      - name: estimated_delivery_at
+      - name: utc_estimated_delivery_at
         data_type: timestamp_tz
         description: ""
 
@@ -180,11 +169,38 @@ models:
         data_type: timestamp_tz
         description: ""
 
+  - name: stg_sql_server_dbo__order_items
+    description: ""
+    columns:
+      - name: order_id
+        tests:
+          - relationships:
+              to: ref('stg_sql_server_dbo__orders')
+              field: order_id
+        data_type: varchar
+        description: ""
+
+      - name: product_id
+        tests:
+          - relationships:
+              to: ref('stg_sql_server_dbo__products')
+              field: product_id
+        data_type: varchar
+        description: ""
+
+      - name: quantity
+        data_type: number
+        description: ""
+
+      - name: utc_date_load
+        data_type: timestamp_tz
+        description: ""
+
   - name: stg_sql_server_dbo__products
     description: ""
     columns:
-      - name: inventory
-        data_type: number
+      - name: product_id
+        data_type: varchar
         description: ""
 
       - name: name
@@ -195,8 +211,8 @@ models:
         data_type: float
         description: ""
 
-      - name: product_id
-        data_type: varchar
+      - name: inventory
+        data_type: number
         description: ""
 
       - name: utc_date_load
@@ -263,10 +279,14 @@ models:
     description: ""
     columns:
       - name: address_id
+        tests:
+          - relationships:
+              to: ref('stg_sql_server_dbo__addresses')
+              field: address_id
         data_type: varchar
         description: ""
 
-      - name: created_at
+      - name: utc_created_at
         data_type: timestamp_tz
         description: ""
 
@@ -294,7 +314,7 @@ models:
         data_type: number
         description: ""
 
-      - name: updated_at
+      - name: utc_updated_at
         data_type: timestamp_tz
         description: ""
 
