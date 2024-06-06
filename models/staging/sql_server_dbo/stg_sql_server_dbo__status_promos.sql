@@ -1,18 +1,19 @@
-with 
+with
 
-src_status_promos as (
+    src_status_promos as (
 
-    select STATUS_PROMOS from {{ ref('base_sql_server_dbo__promos') }}
+        select status_promos from {{ ref("base_sql_server_dbo__promos") }}
 
-),
+    ),
 
-renamed as (
+    renamed as (
 
-    select
-        distinct(STATUS_PROMOS) as status_promos_name,
-        IFF(STATUS_PROMOS = 'active', '1', '0') as status_promos_id
-    from src_status_promos
+        select distinct
+            (status_promos) as status_promos_name,
+            iff(status_promos = 'active', '1', '0') as status_promos_id
+        from src_status_promos
 
-)
+    )
 
-select * from renamed
+select *
+from renamed
